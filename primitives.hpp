@@ -2,80 +2,57 @@
 #define _CFC_PRIMITIVES
 
 #include "object.hpp"
-#include "primitives.hpp"
 #include <string>
 #include <iostream>
+#include <istream>
+#include <ostream>
+#include <iomanip>
+#include <cstring>
 
 namespace CFC{
   namespace Primitives {
     class String: public Object, protected std::string{
-      friend ostream &operator<<(ostream &cout, const String &s);
-      friend istream &operator>>(istream &cin, String &s);
+      
+      friend std::ostream &operator<<(std::ostream &cout, const String &s);
+      friend std::istream &operator>>(std::istream &cin, String &s);
+
     public:
       String();
-      String(String string);
-      String(const char * string = "");
+      String(const String &s);
+      String(const std::string &s);
+      String(const char *s);
       virtual ~String();
       static long unsigned int Instances(){ return instances; }
 
       size_t length();
       size_t size();
-
-      const String &operator=(const String &s);
-      const String &operator=(const std::string &s);
-      const String &operator=(const char s);
-      const String &operator=(const char *s);
       
+      operator std::string ();
+      operator std::string() const;
+      operator char();
+      operator char() const;
+      operator char*();
+      operator char*() const;
+      
+      const String &operator=(const String &s);      
       const String &operator+(const String &s);
-      const String &operator+(const std::string &s);
-      const String &operator+(const char s);
-      const String &operator+(const char *s);
-
       const String &operator+=(const String &s);
-      const String &operator+=(const std::string &s);
-      const String &operator+=(const char s);
-      const String &operator+=(const char *s);
-      
       bool operator!() const;
-
       bool operator==(const String &s) const;
-      bool operator==(const std::string &s) const;
-      bool operator==(const char s) const;
-      bool operator==(const char *s) const;
-
-      bool operator<(const String &s) const;
-      bool operator<(const std::string &s) const;
-      bool operator<(const char s) const;
-      bool operator<(const char *s) const;
-
       bool operator!=(const String &s) const;
-      bool operator!=(const std::string &s) const;
-      bool operator!=(const char s) const;
-      bool operator!=(const char *s) const;
-
+      bool operator<(const String &s) const;
       bool operator>(const String &s) const;
-      bool operator>(const std::string &s) const;
-      bool operator>(const char s) const;
-      bool operator>(const char *s) const;
-
       bool operator>=(const String &s) const;
-      bool operator>=(const std::string &s) const;
-      bool operator>=(const char s) const;
-      bool operator>=(const char *s) const;
-
       bool operator<=(const String &s) const;
-      bool operator<=(const std::string &s) const;
-      bool operator<=(const char s) const;
-      bool operator<=(const char *s) const;
-
       char &operator[](int i);
-      const char &operator[](int i) const;
-      String &operator() (int i, int j);
+
+      std::string &_get_data();
+      const std::string &_get_data() const;
       
     protected:
     private:
       static long unsigned int instances;
-      std::string string;
+      std::string _data;
     };
   }
 }
