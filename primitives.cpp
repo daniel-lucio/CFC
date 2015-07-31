@@ -8,6 +8,12 @@ String::String():Object(){
   instances++;
 }
 
+String::String(String string):Object(){
+}
+
+String::String(const char * string):Object(){
+}
+
 String::~String(){
   instances--;
 }
