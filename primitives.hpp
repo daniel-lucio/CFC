@@ -14,6 +14,8 @@ namespace CFC{
       String(const char * string);
       virtual ~String();
       static long unsigned int Instances(){ return instances; }
+      size_t length();
+      size_t size();
     protected:
     private:
       static long unsigned int instances;

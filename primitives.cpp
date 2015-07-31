@@ -8,13 +8,21 @@ String::String():Object(){
   instances++;
 }
 
-String::String(String string):Object(){
+String::String(String s):Object(){
+  string = s;
 }
 
-String::String(const char * string):Object(){
+String::String(const char * s):Object(){
+  string = *s;
 }
 
 String::~String(){
   instances--;
 }
 
+size_t String::length(){
+  return string.length();
+}
+size_t String::size(){
+  return string.size();
+}
