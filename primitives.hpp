@@ -1,7 +1,7 @@
 #ifndef _CFC_PRIMITIVES
 #define _CFC_PRIMITIVES
 
-#include "cfc.hpp"
+#include "object.hpp"
 #include "primitives.hpp"
 #include <string>
 
