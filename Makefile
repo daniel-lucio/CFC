@@ -1,5 +1,5 @@
 PROJECT=cfc
-SOURCES=cfc.cpp primitives.cpp
+SOURCES=object.cpp primitives.cpp
 LIBRARY=shared
 INCPATHS=
 LIBPATHS=
