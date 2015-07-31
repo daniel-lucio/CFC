@@ -7,7 +7,7 @@
 
 namespace CFC{
   namespace Primitives {
-    class String: public Object, std::string{
+    class String: public Object, protected std::string{
     public:
       String();
       virtual ~String();
